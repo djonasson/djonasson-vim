@@ -378,7 +378,8 @@
   " Choose theme based upon terminal type
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
-    colorscheme railscasts
+    :silent! colorscheme railscasts
+
   else
     colorscheme desert
   endif
