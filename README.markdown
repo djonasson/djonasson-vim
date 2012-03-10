@@ -21,7 +21,7 @@ The easiest way to install djonasson-vim is to use the automatic installer by
 pasting the followin line in a terminal. It will backup your existing vim
 configuration and install djonasson-vim.
 
-    curl https://raw.github.com/djonasson/djonasson-vim/master/bootstrap.sh -L -o | sh
+    curl https://raw.github.com/djonasson/djonasson-vim/master/bootstrap.sh -L -o - | sh
 
 ## What does the install script do?
 
