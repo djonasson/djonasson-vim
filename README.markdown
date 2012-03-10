@@ -1,8 +1,8 @@
 # What is it?
 
-djonasson-vim is Daniel Jonasson's personal vim installation. It's focused on
-providing an optimal programming environment, particularly for (but by no means
-limited to) Ruby on Rails development.
+djonasson-vim is my personal vim installation. It's focused on providing an
+optimal programming environment, particularly for (but by no means limited to)
+Ruby on Rails development.
 
 It uses [Vundle](http://github.com/gmarik/vundle) (Vim bUNDLE) to handle
 plugins.
@@ -26,29 +26,24 @@ configuration and install djonasson-vim.
 ## What does the install script do?
 
 I know - I don't like to have unknown scripts messing around with my system
-either... To see exactly what it does, please take a look at the script before
-running it:
-
-    https://raw.github.com/djonasson/djonasson-vim/master/bootstrap.sh 
-
-Basically what it does is:
+either... To see exactly what it does, please [take a look at the script](https://raw.github.com/djonasson/djonasson-vim/master/bootstrap.sh) before running it. Basically what it does is:
 
 1. It backups your existing vim configuration by renaming (appending the current date):
 
-    ~/.vim => ~/.vim.CURRENT_DATE
-    ~/.vimrc => ~/.vimrc.CURRENT_DATE
-    ~/.gvimrc => ~/.gvimrc.CURRENT_DATE
-    ~/.djonasson-vim => ~/.djonasson-vim.CURRENT_DATE
+        ~/.vim => ~/.vim.CURRENT_DATE
+        ~/.vimrc => ~/.vimrc.CURRENT_DATE
+        ~/.gvimrc => ~/.gvimrc.CURRENT_DATE
+        ~/.djonasson-vim => ~/.djonasson-vim.CURRENT_DATE
 
 2. It clones the djonasson-vim git repository into your home directory:
 
-    git clone git://github.com/djonasson/djonasson-vim.git ~/.djonasson-vim
+        git clone git://github.com/djonasson/djonasson-vim.git ~/.djonasson-vim
 
 3. It sets up necessary symlinks:
 
-    ln -s ~/.djonasson-vim/ ~/.vim
-    ln -s ~/.djonasson-vim/vimrc ~/.vimrc
-    ln -s ~/.djonasson-vim/gvimrc ~/.gvimrc
+        ln -s ~/.djonasson-vim/ ~/.vim
+        ln -s ~/.djonasson-vim/vimrc ~/.vimrc
+        ln -s ~/.djonasson-vim/gvimrc ~/.gvimrc
 
 4. It clones the Vundle repository into the ~/.djonasson-vim/bundle/vundle and uses it to install all the plugins specified in the vimrc file (for a list of plugins see dedicated section below).
 
