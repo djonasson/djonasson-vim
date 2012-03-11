@@ -617,6 +617,14 @@
   noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 " }
 
+" Use gvimrc if available and gui is running {
+  if has('gui_running')
+    if filereadable(expand("~/.gvimrc"))
+      source ~/.gvimrc
+    endif
+  endif
+" }
+
 " Use local vimrc if available {
   if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
