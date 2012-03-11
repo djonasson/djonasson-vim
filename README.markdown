@@ -155,7 +155,8 @@ I currently use and that will be installed through vundler:
 It's probably a good idea to re-bind a key to the escape key since it's used
 all the time. You should chose a key that you can reach without moving your
 hands from their default position. For me, on my MS Natural Elite keyboard,
-this means the right popup menu key. It can be done by using xmodmap:
+this means the right popup menu key. It can be done by using something like
+xmodmap:
 
     xmodmap -e 'keycode 117=Escape'
 
@@ -259,8 +260,8 @@ insert will be inserted for each row when you exit insert mode.
 ## Search, Replace, Autocomplete
     / - search forward
     ? - search backward
-    n - repeat search forward
-    N - repeat search backward
+    n - repeat search in current search direction
+    N - repeat search in the opposite to the current search direction
 
     :%s/old/new/gc - replace string in whole file, asking for confirmation
     :s/old/new/g - replace string in selection
@@ -293,6 +294,19 @@ insert will be inserted for each row when you exit insert mode.
     :tabnew - create new tab
     :tabe filename - open filename in a new tab
     gt - switch between tabs
+
+## Folds
+
+  zf[region] - creates a fold
+  zR - open all folds
+  zM - close all folds
+  zo - open fold at cursor
+  zO - open all folds at cursor
+  zc - close fold at cursor
+  zd - delete the fold at cursor
+  zE - delete all folds
+  [z - move to start of open fold
+  ]z - move to end of open fold
 
 ## Macros
     q{0-9,a-Z} - start recording macro (stop by hitting q again)

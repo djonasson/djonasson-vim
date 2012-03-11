@@ -45,6 +45,7 @@
   " Dependencies {
 
      " Vundle {
+
        " We use vundle to handle updates of itself.
        " REQUIRED for vundle
        Bundle 'gmarik/vundle'
@@ -57,6 +58,7 @@
          "
          " see :h vundle for more details or wiki for FAQ
        " }
+
      " }
 
      " Local bundles {
@@ -127,13 +129,49 @@
           " vim-supertab: Supertab aims to provide tab completion to satisfy all your insert completion needs (:help ins-completion).
           Bundle 'tsaleh/vim-supertab'
 
+          " An impressive collection of color schemes but it creates a
+          " conflict with the railscasts color schema I prefer to use so I've
+          " commented it out for now.
           "Bundle 'flazz/vim-colorschemes'
+
+          " This plugin for Vim enable an auto-close chars feature for you. For
+          " instance if you type an '(', ``autoclose`` will automatically
+          " insert a ')' and put the cursor between
           "Bundle 'AutoClose'
-          "Bundle 'kien/ctrlp.vim'
-          "Bundle 'vim-scripts/sessionman.vim'
-          "Bundle 'Lokaltog/vim-powerline'
-          "Bundle 'Lokaltog/vim-easymotion'
-          "Bundle 'godlygeek/csapprox'
+
+          " Fuzzy file, buffer, mru and tag finder {
+            Bundle 'kien/ctrlp.vim'
+            " Help 
+              " Ctrl-p - start search
+              " Once search open:
+              " Ctrl-d - filename only search
+              " Ctrl-r - regexp mode
+              " Ctrl-y - create a new file with parent directories
+              " Ctrl-z - mark/unmark files, Ctrl-o to open them
+              " F5 - purge cache
+            " }
+          " }
+
+          " Vim provides a ':mksession' command to save the current editing session.
+          Bundle 'vim-scripts/sessionman.vim'
+
+          " Powerline is a utility plugin which allows you to create
+          " better-looking, more functional vim statuslines.
+          Bundle 'Lokaltog/vim-powerline'
+
+          " EasyMotion provides a much simpler way to use some motions in vim {
+            Bundle 'Lokaltog/vim-easymotion'
+            " Help {
+              " Triggered by <leader><leader>
+              " For example, to search for the letter 'o':
+              " <leader><leader>fo
+              " Or by word:
+              " <leader><leader>w
+            " }
+          " }
+
+          " Make gvim-only colorschemes work transparently in terminal vim
+          Bundle 'godlygeek/csapprox'
 
           " BufOnly: Delete all the buffers except the current/named buffer
           Bundle 'vim-scripts/BufOnly.vim'
@@ -208,8 +246,13 @@
           " vim-commentary - comment stuff out
           Bundle 'tpope/vim-commentary.git'
 
-          " syntastic: Syntax checking hacks for vim
-          Bundle 'scrooloose/syntastic'
+          " syntastic: Syntax checking hacks for vim {
+            Bundle 'scrooloose/syntastic'
+            " Customizations {
+              let g:syntastic_enable_signs=1
+              let g:syntastic_auto_loc_list=2
+            " }
+          " }
 
           " vim-snipmate: aims to be a concise vim script that implements some of TextMate's snippets features in Vim. {
             " Dependencies {
@@ -238,8 +281,22 @@
             " }
           " }
 
-          "Bundle 'majutsushi/tagbar'
-          "Bundle 'Shougo/neocomplcache'
+          " tagbar - Vim plugin that displays tags in a window, ordered by
+          " class etc. {
+            Bundle 'majutsushi/tagbar'
+
+            " Customizations {
+              nmap <F8> :TagbarToggle<CR>
+            " }
+
+            " Help {
+              " Use F8 to toggle the tagbar
+            " }
+          " }
+
+          " Neocomplcache performs keyword completion by making a cache of
+          " keywords in a buffer.
+          Bundle 'Shougo/neocomplcache'
 
           " HTML {
             if count(g:djonasson_bundle_groups, 'html')
@@ -334,11 +391,14 @@
   " allow to change buffers although the current one hasn't been saved
   set hidden
 
+  " Stop vim from asking if you want to write the file before leaving buffer
+  set autowrite
+
   " syntax highlight
   syntax on
 
-  " Stop vim from asking if you want to write the file before leaving buffer
-  set autowrite
+  " always switch to the current file directory.
+  autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
   " have Q reformat the current paragraph (or selected text if there is any):
   nnoremap Q gqap
@@ -352,6 +412,20 @@
 
   " Remove trailing white-spaces with F5
   :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+  " Make Y consistent with C and D (copy from cursor to the end of the line)
+  nnoremap Y y$
+
+  " ack-grep
+  let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+  " Move row up with Ctrl-up
+  " TODO: I really should take the time to do this properly...
+  map <C-Up> ddkP
+
+  " Move row down with Ctrl-down
+  " TODO: I really should take the time to do this properly...
+  map <C-Down> ddp
 
 " }
 
@@ -387,6 +461,37 @@
   " Set the default font
   set gfn=DejaVu\ Sans\ Mono\ 8
 
+  " Commandline setup {
+    if has('cmdline_info')
+      " show the ruler
+      set ruler
+      " a ruler on steroids
+      set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+      " show partial commands in status line and selected characters/lines in visual mode
+      set showcmd
+    endif
+  " }
+
+  " Statusline setup {
+    if has('statusline')
+      set laststatus=2
+
+      " Broken down into easily includeable segments
+      " Filename
+      set statusline=%<%f\
+      " Options
+      set statusline+=%w%h%m%r
+      " Git
+      set statusline+=%{fugitive#statusline()}
+      " filetype
+      set statusline+=\ [%{&ff}/%Y]
+      " current dir
+      set statusline+=\ [%{getcwd()}]
+      " Right aligned file nav info
+      set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+    endif
+  " }
+
 " }
 
 " Searching {
@@ -403,8 +508,12 @@
   set ignorecase
 " }
 
-" Tabs and Indentation {
+" Spell checking {
+  " Spell check when writing commit logs
+  autocmd filetype svn,*commit* setlocal spell
+" }
 
+" Tabs and Indentation {
   " Wrap too long lines
   set wrap
 
@@ -419,7 +528,6 @@
 
   " guess indentation
   set autoindent
-
 " }
 
 " Backup {
@@ -499,17 +607,6 @@
   endfunction
   noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
 " }
-
-" ack-grep
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-
-" Move row up with Ctrl-up
-" TODO: I really should take the time to do this properly...
-map <C-Up> ddkP
-
-" Move row down with Ctrl-down
-" TODO: I really should take the time to do this properly...
-map <C-Down> ddp
 
 " Use local vimrc if available {
   if filereadable(expand("~/.vimrc.local"))
