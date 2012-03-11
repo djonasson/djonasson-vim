@@ -539,6 +539,25 @@
   set autoindent
 " }
 
+" Key re-mappings {
+
+  " Code folding options
+  nmap <leader>f0 :set foldlevel=0<CR>
+  nmap <leader>f1 :set foldlevel=1<CR>
+  nmap <leader>f2 :set foldlevel=2<CR>
+  nmap <leader>f3 :set foldlevel=3<CR>
+  nmap <leader>f4 :set foldlevel=4<CR>
+  nmap <leader>f5 :set foldlevel=5<CR>
+  nmap <leader>f6 :set foldlevel=6<CR>
+  nmap <leader>f7 :set foldlevel=7<CR>
+  nmap <leader>f8 :set foldlevel=8<CR>
+  nmap <leader>f9 :set foldlevel=9<CR>
+
+  " Clearing highlighted search
+  nmap <silent> <leader>/ :nohlsearch<CR>
+
+" }
+
 " Backup {
   " We backup to the ~/.vim/backup and ~/.vim/tmp folders instead of to the
   " current directory.
@@ -586,6 +605,9 @@
   " Expand the command line using tab
   set wildchar=<Tab>
 
+  " show list instead of just completing
+  set wildmenu
+
   " show matching files list when using :e etc. don't use greedy matching.
   set wildmode=longest,list
 
@@ -600,21 +622,25 @@
 " }
 
 " Rails {
+
   let g:browser = 'firefox -new-tab '
 
-  " Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
-  function! OpenRubyDoc(keyword)
-    let url = 'http://apidock.com/ruby/'.a:keyword
-    exec '!'.g:browser.' '.url.' &'
-  endfunction
-  noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
+  " Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab {
+    function! OpenRubyDoc(keyword)
+      let url = 'http://apidock.com/ruby/'.a:keyword
+      exec '!'.g:browser.' '.url.' &'
+    endfunction
+    noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
+  " }
 
-  " Open the Rails ApiDock page for the word under cursor, in a new Firefox tab
-  function! OpenRailsDoc(keyword)
-    let url = 'http://apidock.com/rails/'.a:keyword
-    exec '!'.g:browser.' '.url.' &'
-  endfunction
-  noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
+  " Open the Rails ApiDock page for the word under cursor, in a new Firefox tab {
+    function! OpenRailsDoc(keyword)
+      let url = 'http://apidock.com/rails/'.a:keyword
+      exec '!'.g:browser.' '.url.' &'
+    endfunction
+    noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
+  " }
+ 
 " }
 
 " Use gvimrc if available and gui is running {
