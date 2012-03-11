@@ -100,6 +100,10 @@ I currently use and that will be installed through vundler:
 * [vim-l9](http://github.com/clones/vim-l9)
 * [vim-supertab](http://github.com/tsaleh/vim-supertab)
 * [BufOnly.vim](http://github.com/vim-scripts/BufOnly.vim)
+* [ctrlp.vim](http://github.com/kien/ctrlp.vim)
+* [sessionman.vim](http://github.com/vim-scripts/sessionman.vim)
+* [vim-powerline](http://github.com/Lokaltog/vim-powerline)
+* [csapprox](http://github.com/godlygeek/csapprox)
 * [minibufexpl.vim](http://github.com/fholgado/minibufexpl.vim)
 
 ## VCS

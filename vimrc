@@ -141,7 +141,7 @@
 
           " Fuzzy file, buffer, mru and tag finder {
             Bundle 'kien/ctrlp.vim'
-            " Help 
+            " Help {
               " Ctrl-p - start search
               " Once search open:
               " Ctrl-d - filename only search
@@ -281,8 +281,7 @@
             " }
           " }
 
-          " tagbar - Vim plugin that displays tags in a window, ordered by
-          " class etc. {
+          " tagbar - Vim plugin that displays tags in a window, ordered by class etc. {
             Bundle 'majutsushi/tagbar'
 
             " Customizations {
@@ -321,8 +320,18 @@
             if count(g:djonasson_bundle_groups, 'misc')
 
               Bundle 'spf13/vim-markdown'
-              "Bundle 'spf13/vim-preview'
-              "Bundle 'Puppet-Syntax-Highlighting'
+
+              " Preview plugin is a tool developed to help you to preview
+              " markup files such as .markdown, .rdoc, .textile and .html when
+              " you are editing them. It builds html files and opens them in
+              " your browse. {
+                Bundle 'spf13/vim-preview'
+
+                " Help {
+                  " <leader>P - open the current document, converted to HTML,
+                  " in your browser.
+                " }
+              " }
 
             endif
           " }
