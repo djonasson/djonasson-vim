@@ -407,7 +407,7 @@
   syntax on
 
   " always switch to the current file directory.
-  autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+  "autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
   " have Q reformat the current paragraph (or selected text if there is any):
   nnoremap Q gqap
