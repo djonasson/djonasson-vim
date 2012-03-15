@@ -109,6 +109,7 @@ I currently use and that will be installed through vundler:
 ## VCS
 
 * [vim-fugitive](http://github.com/tpope/vim-fugitive)
+* [SCMDiff](http://github.com/vim-scripts/SCMDiff)
 
 ## Programming
 * [vim-commentary.git](http://github.com/tpope/vim-commentary.git)

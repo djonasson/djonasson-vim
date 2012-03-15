@@ -195,46 +195,77 @@
       " VCS {
         if count(g:djonasson_bundle_groups, 'vcs')
 
-          " vim-fugitive: a Git wrapper so awesome, it should be illegal
-          Bundle 'tpope/vim-fugitive'
+          " vim-fugitive: a Git wrapper so awesome, it should be illegal {
+            Bundle 'tpope/vim-fugitive'
 
-          " Help {
+            " Help {
 
-            " View any blob, tree, commit, or tag in the repository with :Gedit,
-            " :Gsplit, :Gvsplit, :Gtabedit
-            "
-            " :Gstatus - Show git status. Use '-' to add/reset a file's changes or
-            " 'p' to add/reset --patch
-            "
-            " :Gcommit - git commit
-            "
-            " :Gdiff - bring up the staged version of the file side by side with the
-            " working tree version and use Vim's diff handling capabilities to stage
-            " a subset of the file's changes
-            "
-            " :Gblame - interactive vertical split with git blame output. Press enter
-            " on a line to reblame the file as it stood in that commit, or o to open
-            " that commit in a split. When you're done, use :Gedit in the historic
-            " buffer to go back to the work tree version.
-            "
-            " :Gmove - does a git mv on a file and simultaneously renames the buffer.
-            "
-            " :Gremove - does a git rm on a file and simultaneously deletes the
-            " buffer.
-            "
-            " :Ggrep - search the work tree (or any arbitrary commit) with git grep,
-            " skipping over that which is not tracked in the repository.
-            "
-            " :Glog - loads all previous revisions of a file into the quickfix list
-            " so you can iterate over them and watch the file evolve!
-            "
-            " :Git - run any arbitrary command.
-            "
-            " :Git! - open the output of a command in a temp file.
-            "
-            " More help can be found here:
-            " https://github.com/tpope/vim-fugitive
+              " View any blob, tree, commit, or tag in the repository with :Gedit,
+              " :Gsplit, :Gvsplit, :Gtabedit
+              "
+              " :Gstatus - Show git status. Use '-' to add/reset a file's changes or
+              " 'p' to add/reset --patch
+              "
+              " :Gcommit - git commit
+              "
+              " :Gdiff - bring up the staged version of the file side by side with the
+              " working tree version and use Vim's diff handling capabilities to stage
+              " a subset of the file's changes
+              "
+              " :Gblame - interactive vertical split with git blame output. Press enter
+              " on a line to reblame the file as it stood in that commit, or o to open
+              " that commit in a split. When you're done, use :Gedit in the historic
+              " buffer to go back to the work tree version.
+              "
+              " :Gmove - does a git mv on a file and simultaneously renames the buffer.
+              "
+              " :Gremove - does a git rm on a file and simultaneously deletes the
+              " buffer.
+              "
+              " :Ggrep - search the work tree (or any arbitrary commit) with git grep,
+              " skipping over that which is not tracked in the repository.
+              "
+              " :Glog - loads all previous revisions of a file into the quickfix list
+              " so you can iterate over them and watch the file evolve!
+              "
+              " :Git - run any arbitrary command.
+              "
+              " :Git! - open the output of a command in a temp file.
+              "
+              " More help can be found here:
+              " https://github.com/tpope/vim-fugitive
 
+            " }
+          " }
+
+          " SCMDiff: Highlight changed lines in a file via SCM diff command.  {
+            Bundle 'SCMDiff'
+
+            " Customizations {
+              " Use git as default
+              let g:SCMDiffCommand='git'
+            " }
+
+            " Help {
+              " It allows you to quickly toggle (through a keybinding, Ctrl-D
+              " by default) the highlighting of changed lines in a file through
+              " an SCM's diff command.
+              "
+              " It also binds Ctrl-G to :set nodiff to quickly turn off the
+              " highlighting.
+              "
+              " The original script was written for git, but this version works
+              " for (at least) Mercurial and Subversion as well.  CVS and
+              " Perforce likely work but have not been tested.
+              "
+              " It likely only works on Unix systems, or at least systems with
+              " 'cat' and 'patch', in addition to the SCM's command.
+              "
+              " Configuration consists of the variable g:SCMDiffCommand, which
+              " if not set will be set to 'svn', assuming Subversion.
+              " If g:SCMDiffCommand is set to 'hg', it works for Mercurial,
+              " and likewise 'git' for git.
+            " }
           " }
 
         endif
@@ -640,7 +671,7 @@
     endfunction
     noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
   " }
- 
+
 " }
 
 " Use gvimrc if available and gui is running {
