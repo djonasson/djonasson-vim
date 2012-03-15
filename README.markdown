@@ -301,16 +301,16 @@ insert will be inserted for each row when you exit insert mode.
 
 ## Folds
 
-  zf[region] - creates a fold
-  zR - open all folds
-  zM - close all folds
-  zo - open fold at cursor
-  zO - open all folds at cursor
-  zc - close fold at cursor
-  zd - delete the fold at cursor
-  zE - delete all folds
-  [z - move to start of open fold
-  ]z - move to end of open fold
+    zf[region] - creates a fold
+    zR - open all folds
+    zM - close all folds
+    zo - open fold at cursor
+    zO - open all folds at cursor
+    zc - close fold at cursor
+    zd - delete the fold at cursor
+    zE - delete all folds
+    [z - move to start of open fold
+    ]z - move to end of open fold
 
 ## Macros
     q{0-9,a-Z} - start recording macro (stop by hitting q again)
