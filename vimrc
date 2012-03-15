@@ -189,6 +189,14 @@
             " }
           " }
 
+          " matrix.vim: A matrix inspired colorscheme. {
+            Bundle 'matrix.vim'
+          " }
+
+          " matrix.vim--Yang: A matrix inpired screensaver {
+            Bundle 'matrix.vim--Yang'
+          " }
+
         endif
       " }
 
@@ -489,13 +497,15 @@
   " Remove the icon menu
   set guioptions-=T
 
+  " Remove the main menu
+  set guioptions-=m
+
   " Choose theme based upon terminal type
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
     :silent! colorscheme railscasts
-
   else
-    colorscheme desert
+    :silent! colorscheme desert
   endif
 
   " Set the default font
