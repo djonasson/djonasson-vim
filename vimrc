@@ -197,6 +197,14 @@
             Bundle 'matrix.vim--Yang'
           " }
 
+          " ack.vim: This plugin will allow you to run ack from vim, and shows the results in a split window. {
+            Bundle 'mileszs/ack.vim'
+
+            " Help {
+              " :Ack [options] {pattern} [{directory}]
+            " }
+          " }
+
         endif
       " }
 
