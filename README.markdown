@@ -105,6 +105,7 @@ I currently use and that will be installed through vundler:
 * [vim-powerline](http://github.com/Lokaltog/vim-powerline)
 * [csapprox](http://github.com/godlygeek/csapprox)
 * [minibufexpl.vim](http://github.com/fholgado/minibufexpl.vim)
+* [ack.vim](http://github.com/mileszs/ack.vim)
 
 ## VCS
 
