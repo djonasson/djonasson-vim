@@ -668,6 +668,9 @@
     \   exe "normal g`\"" |
     \ endif
 
+  " Let vim know that .prawn files are actually ruby files.
+  au BufNewFile,BufRead *.prawn set filetype=ruby
+
 " }
 
 " Rails {
