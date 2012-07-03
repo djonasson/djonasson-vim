@@ -475,13 +475,14 @@
   " ack-grep
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
-  " Move row up with Ctrl-up
-  " TODO: I really should take the time to do this properly...
-  map <C-Up> ddkP
-
-  " Move row down with Ctrl-down
-  " TODO: I really should take the time to do this properly...
-  map <C-Down> ddp
+  " Move current row up/down with Alt-k/Alt-j
+  " Works both in normal and insert modes.
+  nnoremap <A-j> :m+<CR>==
+  nnoremap <A-k> :m-2<CR>==
+  inoremap <A-j> <Esc>:m+<CR>==gi
+  inoremap <A-k> <Esc>:m-2<CR>==gi
+  vnoremap <A-j> :m'>+<CR>gv=gv
+  vnoremap <A-k> :m-2<CR>gv=gv
 
 " }
 
@@ -716,3 +717,5 @@
     endif
   endif
 " }
+
+set t_Co=256
