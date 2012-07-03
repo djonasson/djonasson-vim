@@ -189,13 +189,13 @@
             " }
           " }
 
-          " matrix.vim: A matrix inspired colorscheme. {
-            Bundle 'matrix.vim'
-          " }
+          "" matrix.vim: A matrix inspired colorscheme. {
+          "  Bundle 'matrix.vim'
+          "" }
 
-          " matrix.vim--Yang: A matrix inpired screensaver {
-            Bundle 'matrix.vim--Yang'
-          " }
+          "" matrix.vim--Yang: A matrix inpired screensaver {
+          "  Bundle 'matrix.vim--Yang'
+          "" }
 
           " ack.vim: This plugin will allow you to run ack from vim, and shows the results in a split window. {
             Bundle 'mileszs/ack.vim'
