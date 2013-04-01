@@ -186,6 +186,7 @@
               let g:miniBufExplMapCTabSwitchBufs = 1
               let g:miniBufExplMapWindowNavVim = 1
               let g:miniBufExplMaxSize = 2
+              let g:miniBufExplCheckDupeBufs = 0
             " }
           " }
 
