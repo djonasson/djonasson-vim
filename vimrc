@@ -180,13 +180,15 @@
           Bundle 'vim-scripts/loremipsum.git'
 
           " minibufexpl: Elegant buffer explorer - takes very little screen space {
-            Bundle 'fholgado/minibufexpl.vim'
+            Bundle 'weynhamz/vim-plugin-minibufexpl.git'
             " Customizations {
-              let g:miniBufExplUseSingleClick = 1
-              let g:miniBufExplMapCTabSwitchBufs = 1
-              let g:miniBufExplMapWindowNavVim = 1
-              let g:miniBufExplMaxSize = 2
-              let g:miniBufExplCheckDupeBufs = 0
+              noremap <C-TAB>   :MBEbn<CR>
+              noremap <C-S-TAB> :MBEbp<CR>
+              "let g:miniBufExplUseSingleClick = 1
+              "let g:miniBufExplMapCTabSwitchBufs = 1
+              "let g:miniBufExplMapWindowNavVim = 1
+              "let g:miniBufExplMaxSize = 2
+              "let g:miniBufExplCheckDupeBufs = 0
             " }
           " }
 
