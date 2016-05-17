@@ -115,6 +115,13 @@
 
           " surround.vim: Quoting/parenthesizing made simple
           Bundle 'tpope/vim-surround'
+          
+          " vim-multiple-cursors: True Sublime Text style multiple selections for Vim
+          Bundle 'terryma/vim-multiple-cursors'
+          " Help {
+              " Ctrl-n - highlights the current word under the cursor in Visual mode and places a virtual cursor at the end of it.
+              " If you select multiple lines in Visual mode, pressing the key puts a virtual cursor at every line and leaves you in Normal mode.
+            " }
 
           " vim-fuzzyfinder: Fuzzy/Partial pattern explorer for buffer/file/MRU/command/bookmark/tag/etc. {
             Bundle 'clones/vim-fuzzyfinder'
