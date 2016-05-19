@@ -147,7 +147,7 @@
           "Bundle 'AutoClose'
 
           " Fuzzy file, buffer, mru and tag finder {
-            Bundle 'kien/ctrlp.vim'
+            Bundle 'ctrlpvim/ctrlp.vim'
             " Help {
               " Ctrl-p - start search
               " Once search open:
