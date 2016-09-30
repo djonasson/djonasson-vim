@@ -213,7 +213,7 @@ sheet that I've put together:
     o - insert line below current and enter insert mode
     O - insert line above current and enter insert mode
     I - jump to first blank character of current line and switch to insert mode
-    A - jumb to last charachter of current line and switch to insert mode
+    A - jumb to last character of current line and switch to insert mode
 
     d - delete from cursor to position given by next command (ex. d$)
     dd - delete the current line
